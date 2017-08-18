@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/static/lib/css/material_icons.css">
+    <link rel="stylesheet" href="/static/lib/css/material.indigo-pink.min.css">
+
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link href="/static/css/card.css" rel="stylesheet">
+    <link href="/static/css/particles.css" rel="stylesheet">
+</head>
+<body>
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+        <div>
+            <canvas id="Mycanvas"></canvas>
+        </div>
+
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Project</h3>
+                    <nav class="nav nav-masthead">
+                        <a class="nav-link" href="#">首页</a>
+                        {% for p in page_header %}
+                        <a class="nav-link" href="{{ p.url }}">{{ p.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <div class="index-card-wide demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Todo</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Mauris sagittis pellentesque lacus eleifend lacinia...
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                           href="{{ url_for('todo.index') }}">进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/static/lib/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/static/lib/js/material.min.js"></script>
+<script src="/static/js/particles.js"></script>
+
+</body>
+</html>

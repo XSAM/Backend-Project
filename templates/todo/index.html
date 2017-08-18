@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/static/lib/css/material_icons.css">
+    <link rel="stylesheet" href="/static/lib/css/material.indigo-pink.min.css">
+
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link href="/static/css/card.css" rel="stylesheet">
+    <link href="/static/css/particles.css" rel="stylesheet">
+</head>
+<body>
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+        <div>
+            <canvas id="Mycanvas"></canvas>
+        </div>
+        <div id="csrf-token" data-token="{{ token }}" hidden></div>
+
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Project</h3>
+                    <nav class="nav nav-masthead">
+                        <a class="nav-link" href="{{ url_for('index.index') }}">首页</a>
+                        {% for p in page_header %}
+                        <a class="nav-link" href="{{ p.url }}">{{ p.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Wide card with share menu button -->
+            <div class="inner cover">
+
+                <div id="todo-form-add">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text">
+                        <label class="mdl-textfield__label">内容...</label>
+                    </div>
+                    <button id="todo-button-add" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">添加</button>
+                </div>
+
+                <div id="todo-form-edit">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text">
+                        <label class="mdl-textfield__label">编辑...</label>
+                    </div>
+                    <button id="todo-button-edit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">更新</button>
+                </div>
+
+
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                    <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">内容</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for t in todo_list %}
+                    <tr class="todo-list" data-id="{{ t.id }}" data-completed="{{ t.completed }}">
+                        <td class="mdl-data-table__cell--non-numeric todo-title">{{ t.title }}</td>
+                        <td>{{ t.ct() }}</td>
+                        <td>{{ t.ut() }}</td>
+                        <td>
+                            <button type="button" class="mdl-chip__action"><i class="material-icons todo-edit">edit</i></button>
+                        </td>
+                        <td>
+                            <button type="button" class="mdl-chip__action"><i class="material-icons todo-delete">delete</i></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/static/lib/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/static/lib/js/material.min.js"></script>
+<script src="/static/js/particles.js"></script>
+<script src="/static/js/todo_api.js"></script>
+<script src="/static/js/todo.js"></script>
+
+</body>
+</html>

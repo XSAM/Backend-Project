@@ -1,0 +1,64 @@
+
+.demo-card-wide.mdl-card {
+    max-width: 512px;
+    width: 100%;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 75px;
+  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') top / cover;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 75px;
+  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') top / cover;
+}
+
+.index-card-wide {
+    max-width: none !important;
+    height: 176px !important;
+}
+
+a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect {
+    font-size: 20px;
+}
+
+.index-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+
+.card-content {
+  height: 400px;
+}
+
+.align-center {
+  vertical-align: middle;
+  text-align: center;
+  height: 100%;
+}
+
+.demo-card-wide.mdl-card.mdl-shadow--2dp {
+    border-radius: 8px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.big-button {
+  width: 30%
+}
+
+body {
+  /*padding: 20px;*/
+  background: #fafafa;
+  position: relative;
+}
+
+td.mdl-data-table__cell--non-numeric {
+    width: 100%;
+}
