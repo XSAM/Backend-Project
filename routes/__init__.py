@@ -29,7 +29,7 @@ def current_user():
     return u
 
 
-def validate_login_and_token(request):
+def validate_login_and_token_with_form(request):
     u = current_user()
     if u is None:
         return 403, u
@@ -42,8 +42,22 @@ def validate_login_and_token(request):
         return 403, u
 
 
-def get_valid(request):
-    code, u = validate_login_and_token(request)
+def validate_login_and_token_with_json(request):
+    form = request.get_json()
+    u = current_user()
+    if u is None:
+        return 403, u
+    token = form.get('token', None)
+    if token in csrf_token and csrf_token[token] == u.id:
+        # FIXME csrf
+        # csrf_token.pop(token)
+        return 200, u
+    else:
+        return 403, u
+
+
+def get_valid_with_form(request):
+    code, u = validate_login_and_token_with_form(request)
     valid = Valid()
     valid.code = code
     if code == 200:
