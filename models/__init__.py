@@ -85,8 +85,10 @@ class Mongo(object):
 
         # 过滤被删除的数据
         deleted = kwargs.get('deleted', False)
-        if deleted == 'True':
+        if deleted is True:
             kwargs.pop('deleted')
+        else:
+            kwargs['deleted'] = False
 
         flag_sort = '__sort'
         sort = kwargs.pop(flag_sort, None)
@@ -146,6 +148,7 @@ class Mongo(object):
         client.todo[name].save(self.__dict__)
 
     def delete(self):
+        print('deleted')
         name = self.__class__.__name__
         query = {
             'id': self.id,
@@ -161,6 +164,18 @@ class Mongo(object):
         class_name = self.__class__.__name__
         properties = ('{0} = {1}'.format(k, v) for k, v in self.__dict__.items())
         return '<{0}: \n  {1}\n>'.format(class_name, '\n  '.join(properties))
+
+    def ct(self):
+        format = '%H:%M:%S'
+        value = time.localtime(self.created_time)
+        dt = time.strftime(format, value)
+        return dt
+
+    def ut(self):
+        format = '%H:%M:%S'
+        value = time.localtime(self.updated_time)
+        dt = time.strftime(format, value)
+        return dt
 
 if __name__ == '__main__':
     # model = Mongo().new()

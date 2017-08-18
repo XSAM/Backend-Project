@@ -32,6 +32,8 @@ class User(Mongo):
         pwd = form.get('password', '')
         if len(name) >= 5 and User.has(username=name) is False:
             pwd = User.salt_password(pwd)
+            # form 是不可变对象，所以为了减少 save 次数，使用copy
+            form = form.copy()
             form['password'] = pwd
             u = User.new(form)
             return u

@@ -5,8 +5,10 @@ from utils import (
     log,
 )
 import json
-from models.RedisCache import RedisCache
+import time
+from models.redis_cache import RedisCache
 from collections import defaultdict
+
 
 def bool_true():
     return True
@@ -74,6 +76,23 @@ class Todo(Mongo):
         j = json.loads(Todo.cache_client.get('todo_'+str(id)))
         j = [Todo.from_json(i) for i in j]
         return j
+
+    def save(self):
+        super(Todo, self).save()
+        self.should_update_all = True
+        self.should_update_user_id[self.user_id] = True
+
+    def ct(self):
+        format = '%H:%M'
+        value = time.localtime(self.created_time)
+        dt = time.strftime(format, value)
+        return dt
+
+    def ut(self):
+        format = '%H:%M'
+        value = time.localtime(self.updated_time)
+        dt = time.strftime(format, value)
+        return dt
 
 
 if __name__ == '__main__':
