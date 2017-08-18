@@ -5,6 +5,7 @@ import json
 dir = os.path.dirname(__file__)
 log_path = dir + '/server.log'
 
+
 def log(*args, **kwargs):
     pattern = '%H:%M:%S'
     value = time.localtime(int(time.time()))
