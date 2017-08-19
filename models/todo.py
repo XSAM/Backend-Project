@@ -82,6 +82,11 @@ class Todo(Mongo):
         self.should_update_all = True
         self.should_update_user_id[self.user_id] = True
 
+    def delete(self):
+        super(Todo, self).delete()
+        self.should_update_all = True
+        self.should_update_user_id[self.user_id] = True
+
     def ct(self):
         format = '%H:%M'
         value = time.localtime(self.created_time)
