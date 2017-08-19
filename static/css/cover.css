@@ -186,6 +186,12 @@ body, h3 {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
+
+  /* disable in mobile */
+  .login-card {
+    left: 21%;
+    position: relative;
+  }
 }
 
 @media (min-width: 62em) {
