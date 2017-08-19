@@ -65,7 +65,7 @@ def get_valid_with_form(request):
     if u is not None:
         valid.is_user = True
         valid.page_header = (
-            Head(u.username, url_for('index.index')),
+            Head(u.username, url_for('index.profile')),
             Head('登出', url_for('index.logout')),
         )
     else:

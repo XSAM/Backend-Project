@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1">
+
+    <title>微博</title>
+    <link href="/static/weibo/frame.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <link href="/static/weibo/home.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <link href="/static/weibo/skin.css" type="text/css" rel="stylesheet" charset="utf-8">
+
+    <script type="text/javascript">
+        var $CONFIG = {};
+        $CONFIG['islogin'] = '1';
+        $CONFIG['skin'] = 'skin048';
+        $CONFIG['background'] = '';
+        $CONFIG['scheme'] = '';
+        $CONFIG['colors_type'] = '0';
+        $CONFIG['$webim'] = '1';
+        $CONFIG['uid'] = '5295238355';
+        $CONFIG['nick'] = '丶丶SAM丶丶';
+        $CONFIG['sex'] = 'm';
+        $CONFIG['watermark'] = 'u/5295238355';
+        $CONFIG['domain'] = '5295238355';
+        $CONFIG['lang'] = 'zh-cn';
+        $CONFIG['avatar_large'] = '//tva4.sinaimg.cn/crop.0.0.1080.1080.180/005Mmhofjw8emxlwkwop0j30u00u0dhj.jpg';
+        $CONFIG['oid'] = '5295238355';
+        $CONFIG['onick'] = '丶丶SAM丶丶';
+        $CONFIG['timeDiff'] = (new Date() - 1503129072000);
+        $CONFIG['servertime'] = '1503129072';
+        $CONFIG['location'] = 'v6_content_home';
+        $CONFIG['pageid'] = 'v6_content_home';
+        $CONFIG['page_id'] = '';
+        $CONFIG['title_value'] = '我的首页 微博-随时随地发现新鲜事';
+        $CONFIG['miyou'] = '0';
+        $CONFIG['brand'] = '0';
+        $CONFIG['bigpipe'] = 'true';
+        $CONFIG['bpType'] = 'main';
+        $CONFIG['jsPath'] = '//js.t.sinajs.cn/t6/';
+        $CONFIG['cssPath'] = '//img.t.sinajs.cn/t6/';
+        $CONFIG['imgPath'] = '//img.t.sinajs.cn/t6/';
+        $CONFIG['mJsPath'] = ["\/\/js{n}.t.sinajs.cn\/t6\/", 1, 2];
+        $CONFIG['mCssPath'] = ["\/\/img{n}.t.sinajs.cn\/t6\/", 1, 2];
+        $CONFIG['version'] = '943f78a4e277eddb';
+        $CONFIG['isAuto'] = '0';
+        $CONFIG['timeweibo'] = '1';
+    </script>
+</head>
+<body class="FRAME_main B_index WB_macT">
+<div style="position: absolute; top: -9999px; left: -9999px;"></div>
+
+<div class="WB_miniblog">
+    <div class="WB_miniblog_fb">
+        <div id="plc_top"><!--简易顶部导航拼页面用-->
+            <div class="WB_global_nav WB_global_nav_v2 WB_global_nav_alpha UI_top_hidden " node-type="top_all"
+                 action-data="publish2000=1">
+                <div class="gn_header clearfix">
+
+
+                    <div class="gn_position">
+                        <div class="gn_nav">
+                            <ul class="gn_nav_list">
+                                <li><a href="{{ url_for('index.index') }}">首页</a></li>
+                                <li><a href="{{ url_for('index.profile') }}">{{ user.username }}</a></li>
+                                <li><a href="{{ url_for('index.logout') }}">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/简易顶部导航拼页面用-->
+        </div>
+        <div class="WB_main clearfix" id="plc_frame">
+
+
+            <div class="WB_frame">
+                <div id="plc_main">
+                    <div class="WB_main_c">
+                        <div id="publisher">
+                            <div class="send_weibo S_bg2 clearfix">
+                                <form action="{{ url_for('weibo.post', id=user.id ) }}" method="post">
+                                    <div class="input">
+                                        <input name="token" value="{{ token }}" type="hidden">
+                                        <textarea class="W_input" name="content"></textarea>
+                                    </div>
+                                    <div class="func_area clearfix">
+                                        <div class="func">
+
+                                            <button class="W_btn_a btn_30px">发布</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="v6_pl_content_homefeed">
+                            <div node-type="homefeed">
+                                <div class="WB_tab_a" node-type="feed_nav" mblogsorttype=""
+                                     dom_id="Pl_Content_HomeFeed">
+                                    <div class="tab_box tab_box_a tab_box_a_r6 clearfix">
+                                        <ul class="tab W_fl clearfix">
+                                            <li class="li_first S_bg2"></li>
+                                            <li class="curr">
+                                                <a href="#" class="S_txt1">
+                                                    <span class="t S_bg2">全部</span>
+                                                    <span class="b">
+                <span class="b1">
+                    <em class="l"><i class="S_bg2"></i></em>
+                    <em class="r"><i class="S_bg2"></i></em>
+                </span>
+                <span class="W_arrow_bor W_arrow_bor_tno"><i class="S_bg2_br"></i></span>
+            </span>
+                                                </a>
+                                            </li>
+                                            <li class="S_bg2">
+                                                <a href="{{ url_for('.user', user_id=user.id) }}" class="S_txt1">
+                                                    <span class="t S_bg2">我的</span>
+                                                </a>
+                                            </li>
+                                            <li class="S_bg2">
+
+                                            </li>
+                                            <li class="S_bg2">
+
+                                            </li>
+                                            <li class="S_bg2">
+
+                                            </li>
+                                            <li class="S_bg2">
+
+                                            </li>
+                                            <li class="li_last S_bg2"></li>
+                                        </ul>
+                                        <div class="fr_box W_fr S_bg2">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                {% for p in post_list %}
+                                    <div class="WB_feed WB_feed_v3 WB_feed_v4">
+                                    <div class="WB_cardwrap WB_feed_type S_bg2 WB_feed_like">
+                                        <div class="WB_feed_detail clearfix">
+
+                                            <div class="WB_face W_fl">
+                                                <div class="face"><a class="W_face_radius"><img width="50" height="50"
+                                                                                                src="{{ url_for('index.uploads', filename=p.user_image) }}"
+                                                                                                class="W_face_radius"></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="WB_detail">
+                                                <div class="WB_info">
+                                                    <a class="W_f14 W_fb S_txt1" href="{{ url_for('.user', user_id=p.user_id) }}">{{ p.username }}</a>
+                                                </div>
+                                                <div class="">
+
+                                                    <a class="S_txt2">{{ p.ct() }}</a>
+                                                </div>
+                                                <div class="WB_text W_f14">
+                                                    {{ p.content }}
+                                                </div>
+
+                                                {%  if p.refer_post_id != -1 %}
+                                                <div class="WB_feed_expand">
+
+                                                    <div class="WB_expand S_bg1" node-type="feed_list_forwardContent">
+                                                        <div class="WB_info">
+                                                            <a class="W_fb S_txt1"
+                                                               href="{{ url_for('.user', user_id=p.refer_user.id) }}">
+                                                                @{{ p.refer_user.username }}</a>
+                                                        </div>
+                                                        <div class="WB_text" node-type="feed_list_reason">
+                                                            {{ p.refer_post.content }}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+
+                                                </div>
+                                            </div>
+
+                                            <!-- minzheng add part 3 -->
+                                            <div class="WB_feed_handle">
+                                                <div class="WB_handle">
+                                                    <ul class="WB_row_line WB_row_r4 clearfix S_line2">
+                                                        <li>
+                                                            <a class="S_txt2" href="{{ url_for('.post', post_id=p.id) }}"><span
+                                                                    class="pos"><span
+                                                                    class="line S_line1"><span><em>回复</em></span></span></span></a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a class="S_txt2" href="{{ url_for('.forward', refer_post_id=p.forward_id) }}"><span
+                                                                    class="pos"><span
+                                                                    class="line S_line1"><span><em>转发</em></span></span></span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<div></div>
+</html>

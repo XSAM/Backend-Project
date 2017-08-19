@@ -13,9 +13,11 @@ app.secret_key = config.secret_key
 from routes.index import main as index_routes
 from routes.todo import main as todo_routes
 from routes.api.todo import main as api_todo_routes
+from routes.weibo.index import main as weibo_routes
 app.register_blueprint(index_routes)
 app.register_blueprint(todo_routes, url_prefix='/todo')
 app.register_blueprint(api_todo_routes, url_prefix='/api/todo')
+app.register_blueprint(weibo_routes, url_prefix='/weibo')
 
 if __name__ == '__main__':
     config = dict(

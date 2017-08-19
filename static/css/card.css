@@ -76,3 +76,7 @@ table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2d
 th.mdl-data-table__cell--non-numeric {
     width: 100%;
 }
+
+.face-radius {
+    border-radius: 50%;
+}

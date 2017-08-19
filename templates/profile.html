@@ -13,6 +13,12 @@
     <link href="/static/css/cover.css" rel="stylesheet">
     <link href="/static/css/card.css" rel="stylesheet">
     <link href="/static/css/particles.css" rel="stylesheet">
+
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="site-wrapper">
@@ -29,41 +35,30 @@
                     <nav class="nav nav-masthead">
                         <a class="nav-link" href="{{ url_for('index.index') }}">首页</a>
                         {% for p in page_header %}
-                        <a class="nav-link" href="{{ p.url }}">{{ p.title }}</a>
+                            <a class="nav-link" href="{{ p.url }}">{{ p.title }}</a>
                         {% endfor %}
                     </nav>
                 </div>
             </div>
 
             <div class="inner cover">
-                <div class="index-card-wide demo-card-wide mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Todo</h2>
+
+                <div>
+                    <div>
+                        <img width="30%" height="30%" src="{{ url_for('.uploads', filename=user.user_image) }}" class="face-radius">
+                        <h1>{{ user.username }}</h1>
                     </div>
-                    <div class="mdl-card__supporting-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris sagittis pellentesque lacus eleifend lacinia...
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-                           href="{{ url_for('todo.index') }}">进入</a>
-                    </div>
-                </div>
+
                 <br>
-                <br>
-                <div class="index-card-wide demo-card-wide mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Weibo</h2>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris sagittis pellentesque lacus eleifend lacinia...
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-                           href="{{ url_for('weibo.index') }}">进入</a>
-                    </div>
+                <h5>上传新头像</h5>
+                <form method=post action={{ url_for("index.add_user_image") }} enctype=multipart/form-data>
+                    <p> <input type=file name=file>
+                        <input name="token" value='{{ token }}' type="hidden">
+                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type=submit value="上传">
+                </form>
+
                 </div>
+
             </div>
 
             <div class="mastfoot">

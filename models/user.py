@@ -9,7 +9,7 @@ class User(Mongo):
     __fields__ = Mongo.__fields__ + [
         ('username', str, ''),
         ('password', str, ''),
-        ('user_image', str, ''),
+        ('user_image', str, 'default.png'),
     ]
 
     def __init__(self):

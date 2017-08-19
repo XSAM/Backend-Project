@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转发</title>
+</head>
+<body>
+    <form action="{{ url_for('.forward') }}" method="post">
+        <input name="token" value="{{ token }}" type="hidden">
+        <input name="user_id" value="{{ user.id }}" type="hidden">
+        <input name="refer_post_id" value="{{ refer_post_id }}" type="hidden">
+        <input name="content">
+        <button>转发</button>
+    </form>
+</body>
+</html>
