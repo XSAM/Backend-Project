@@ -59,6 +59,10 @@ body {
   position: relative;
 }
 
-td.mdl-data-table__cell--non-numeric {
+table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.is-upgraded {
+    width: 100%;
+}
+
+th.mdl-data-table__cell--non-numeric {
     width: 100%;
 }
