@@ -21,7 +21,7 @@ def init():
     from routes.chat_room.index import main as chat_room_routes
     app.register_blueprint(index_routes)
     app.register_blueprint(todo_routes, url_prefix='/todo')
-    app.register_blueprint(api_todo_routes, url_prefix='/api/todo')
+    app.register_blueprint(api_todo_routes, url_prefix='/api/v1.0/todo')
     app.register_blueprint(weibo_routes, url_prefix='/weibo')
     app.register_blueprint(chat_room_routes, url_prefix='/chat-room')
     return app

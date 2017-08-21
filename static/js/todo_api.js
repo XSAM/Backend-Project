@@ -32,33 +32,33 @@ var ajax = function(method, path, data, responseCallback) {
 // TODO API
 // 获取所有 todo
 var apiTodoAll = function(callback) {
-    var path = '/api/todo/all'
+    var path = '/api/v1.0/todo/'
     ajax('GET', path, '', callback)
 }
 
 // 增加一个 todo
 var apiTodoAdd = function(form, callback) {
-    var path = '/api/todo/add'
+    var path = '/api/v1.0/todo/'
     ajax('POST', path, form, callback)
 }
 
 // 删除一个 todo
 var apiTodoDelete = function(form, callback) {
-    var path = '/api/todo/delete/' + form.id
-    ajax('POST', path, form, callback)
+    var path = '/api/v1.0/todo/' + form.id
+    ajax('DELETE', path, form, callback)
     //    get(path, callback)
 }
 
 // 更新一个 todo
 var apiTodoEdit = function(form, callback) {
-    var path = '/api/todo/edit/' + form.id
-    ajax('POST', path, form, callback)
+    var path = '/api/v1.0/todo/' + form.id
+    ajax('PATCH', path, form, callback)
     //    post(path, form, callback)
 }
 
 // 完成一个 todo
 var apiTodoComplete = function(form, callback) {
-    var path = '/api/todo/complete/' + form.id
+    var path = '/api/v1.0/todo/complete/' + form.id
     ajax('POST', path, form, callback)
     //    post(path, form, callback)
 }

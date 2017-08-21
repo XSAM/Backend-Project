@@ -38,7 +38,7 @@ a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect {
 .index-card-wide > .mdl-card__title {
   color: #fff;
   height: 176px;
-  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+  background: url('/static/lib/resources/welcome_card.jpg') center / cover;
 }
 
 .card-content {
