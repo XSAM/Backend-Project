@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bundy's Project</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link rel="stylesheet" href="/static/lib/css/material_icons.css">
+    <link rel="stylesheet" href="/static/lib/css/material.indigo-pink.min.css">
+
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link href="/static/css/chat.css" rel="stylesheet">
+    <link href="/static/css/particles.css" rel="stylesheet">
+
+    <style>
+        div {
+            text-align: center;
+        }
+        a.rc-channel {
+    font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+        <div>
+            <canvas id="Mycanvas"></canvas>
+        </div>
+
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Project</h3>
+                    <nav class="nav nav-masthead">
+                        <a class="nav-link" href="{{ url_for('index.index') }}">首页</a>
+                        {% for p in page_header %}
+                        <a class="nav-link" href="{{ p.url }}">{{ p.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+
+            <div>
+
+                <div id='id-div-channels' class="rc-left">
+            <h1 id = 'id-div-channels-title'>聊天室</h1>
+                    <a>频道</a>
+            |<a class="rc-channel" href="#" id="default-channel"> 综合 </a>|
+            <a class="rc-channel" href="#"> 游戏 </a>|
+            <a class="rc-channel" href="#"> 技术 </a>|
+        </div>
+            <br>
+        <textarea id="id_chat_area" cols="80" rows="20"></textarea><br><br>
+        <input id="text" size="80" placeholder="输入消息"><br><br>
+{#                  <div class="mdl-textfield mdl-js-textfield">#}
+{#    <input size="80" id="text" class="mdl-textfield__input" type="text" id="sample1">#}
+{#    <label class="mdl-textfield__label" for="sample1">输入消息</label>#}
+{#  </div>#}
+
+
+
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/static/lib/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/static/lib/socket.io/1.3.6/socket.io.min.js"></script>
+<script src="/static/lib/js/material.min.js"></script>
+<script src="/static/js/particles.js"></script>
+<script src="/static/js/chat.js"></script>
+
+</body>
+</html>

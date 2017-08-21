@@ -41,8 +41,7 @@
                         <h2 class="mdl-card__title-text">Todo</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris sagittis pellentesque lacus eleifend lacinia...
+                        使用 AJAX 传输数据
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
@@ -53,15 +52,29 @@
                 <br>
                 <div class="index-card-wide demo-card-wide mdl-card mdl-shadow--2dp">
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Weibo</h2>
+                        <h2 class="mdl-card__title-text">微博</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris sagittis pellentesque lacus eleifend lacinia...
+                        类微博，拥有 显示头像、发布、回复、转发、删除 功能
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
                            href="{{ url_for('weibo.index') }}">进入</a>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <div class="index-card-wide demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">聊天室</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        使用 WebSocket 进行数据交互
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                           href="{{ url_for('chat_room.index') }}">进入</a>
                     </div>
                 </div>
             </div>
