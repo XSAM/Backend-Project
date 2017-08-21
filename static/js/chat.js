@@ -21,7 +21,13 @@ var clear_board = function()
 }
 
 $(document).ready(function(){
-    socket = io.connect('ws://' + document.domain + ':' + location.port + '/chat');
+    // magic code...
+    if (document.domain == '127.0.0.1') {
+        socket = io.connect('ws://' + document.domain + ':' + location.port + '/chat');
+    }
+    else {
+        socket = io.connect('wss://' + document.domain + ':' + location.port + '/chat');
+    }
     socket.on('connect', function() {
         console.log('connect');
         clear_board();
