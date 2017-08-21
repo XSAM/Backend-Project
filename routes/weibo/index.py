@@ -136,3 +136,23 @@ def forward():
     #     Reply.new(form)
     #     return redirect(url_for('.post', post_id=post_id))
     # return abort(403)
+
+
+@main.route('/delete', methods=['GET', 'POST'])
+def delete():
+    if request.method == 'GET':
+        u = current_user()
+        token = str(uuid.uuid4())
+        csrf_token[token] = u.id
+        post_id = int(request.args.get('post_id', -1))
+        if u is not None:
+            return render_template('weibo/delete.html', token=token, user=u, post_id=post_id)
+    else:
+        code, u = validate_login_and_token_with_form(request)
+        print(request.form.get('post_id'))
+        post_id = int(request.form.get('post_id', -1))
+        post = Post().find_one(id=post_id)
+        if code == 200 and post is not None and u.id == post.user_id:
+            post.delete()
+            return redirect(url_for('.index'))
+    return abort(403)

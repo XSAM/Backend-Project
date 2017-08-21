@@ -184,6 +184,15 @@
                                                                     class="pos"><span
                                                                     class="line S_line1"><span><em>转发</em></span></span></span></a>
                                                         </li>
+
+                                                        {% if user.id == p.user_id %}
+                                                        <li>
+                                                            <a class="S_txt2" href="{{ url_for('.delete', post_id=p.id) }}"><span
+                                                                    class="pos"><span
+                                                                    class="line S_line1"><span><em>删除</em></span></span></span></a>
+                                                        </li>
+                                                        {% endif %}
+
                                                     </ul>
                                                 </div>
                                             </div>

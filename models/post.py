@@ -22,8 +22,11 @@ class Post(Mongo):
     def set_attr_by_refer_post(self):
         if self.refer_post_id != -1:
             tmp_post = Post().find_one(id=self.refer_post_id)
-            self.refer_post = tmp_post
-            self.refer_user = User().find_one(id=tmp_post.user_id)
+            if tmp_post is not None:
+                self.refer_post = tmp_post
+                self.refer_user = User().find_one(id=tmp_post.user_id)
+            else:
+                self.refer_post_id = -1
 
     def user(self):
         u = User.find_one(id=self.user_id)
